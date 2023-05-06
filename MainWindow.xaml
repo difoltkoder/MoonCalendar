@@ -1,0 +1,24 @@
+﻿<Window x:Class="mooncalendar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mooncalendar"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="560" Width="850">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF060E21">
+            <Button x:Name="Home" Content="Календарь"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Home_Click"></Button>
+            <Button x:Name="Calendar" Content="Основное"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Calendar_Click"></Button>
+            <Button x:Name="Zametki" Content="Заметки"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Zametki_Click"></Button>
+        </StackPanel>
+        <Frame Background="Blue" x:Name="Myframe" Grid.Row="1"/>
+        <TextBlock x:Name="TextBox12" FontSize="35" Text="Вас приветствует лунный календарь"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Foreground="White">
+        </TextBlock>
+    </Grid>
+</Window>

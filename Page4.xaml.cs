@@ -25,7 +25,7 @@ namespace mooncalendar
     /// </summary>
     public partial class Page4 : Page
     {
-        private bool b = false;
+       
         int _year = DateTime.Now.Year;
         int _month = 5;
         int _day = 1;

@@ -22,7 +22,11 @@ C:\Users\Admin\source\repos\mooncalendar\mooncalendar\obj\Debug\Page4.g.cs
 C:\Users\Admin\source\repos\mooncalendar\mooncalendar\obj\Debug\Page4.baml
 C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\System.Device.Portable.dll
 C:\Users\Admin\source\repos\mooncalendar\mooncalendar\obj\Debug\mooncalendar.csproj.CopyComplete
-C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Innovative.Geometry.Angle.dll
-C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Innovative.SolarCalculator.dll
-C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Innovative.Geometry.Angle.xml
-C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Innovative.SolarCalculator.xml
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\obj\Debug\Page3.g.cs
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\obj\Debug\Page3.baml
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Flurl.dll
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Flurl.Http.dll
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Flurl.xml
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Flurl.Http.xml
+C:\Users\Admin\source\repos\mooncalendar\mooncalendar\bin\Debug\Newtonsoft.Json.xml

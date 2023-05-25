@@ -56,6 +56,10 @@ namespace mooncalendar
             TextBox12.Text = " ";
         }
 
-        
+        private void Randomazer_Click(object sender, RoutedEventArgs e)
+        {
+            Myframe.Content = new Page3();
+            TextBox12.Text = " ";
+        }
     }
 }

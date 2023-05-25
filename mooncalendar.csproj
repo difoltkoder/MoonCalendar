@@ -14,6 +14,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,17 +37,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Innovative.Geometry.Angle, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Angle.3.2.1\lib\net461\Innovative.Geometry.Angle.dll</HintPath>
+    <Reference Include="Flurl, Version=3.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.3.0.6\lib\net472\Flurl.dll</HintPath>
     </Reference>
-    <Reference Include="Innovative.SolarCalculator, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SolarCalculator.3.2.1\lib\net461\Innovative.SolarCalculator.dll</HintPath>
+    <Reference Include="Flurl.Http, Version=3.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.3.2.4\lib\net472\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Device.Portable, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3f6d3f5f65b761a0, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Device.Location.Portable.1.0.0\lib\System.Device.Portable.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,6 +90,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Page3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +102,9 @@
   <ItemGroup>
     <Compile Include="Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Page3.xaml.cs">
+      <DependentUpon>Page3.xaml</DependentUpon>
     </Compile>
     <Compile Include="Page4.xaml.cs">
       <DependentUpon>Page4.xaml</DependentUpon>
@@ -126,7 +136,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="1618662677_9-phonoteka_org-p-fon-nochnogo-neba-so-zvezdami-11.jpg" />
+    <Resource Include="FrameImg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

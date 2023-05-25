@@ -1,5 +1,5 @@
 ﻿using System;
-using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +7,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Innovative.SolarCalculator;
+
 using System.Windows.Controls;
 using System.IO;
 using System.Windows;
 using System.Net;
 using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
-/*
-1) вывод какая луна
-2)сделать норм закат рассвет
- */
+
+
+
 namespace mooncalendar
 {
     /// <summary>
@@ -25,32 +24,81 @@ namespace mooncalendar
     /// </summary>
     public partial class Page1 : Page
     {
-        private static string urlzakat = "https://my-calend.ru/moon/may";
-        private static string UrlSite = "https://calendar.yoip.ru/lunar/today-moon-phase.html";
+        private static string urljun = "https://kalendar-365.ru/moon/2023/january";
+        private static string urlfeb = "https://kalendar-365.ru/moon/2023/february";
+        private static string urlmarch = "https://kalendar-365.ru/moon/2023/march";
+        private static string urlapril = "https://kalendar-365.ru/moon/2023/april";
+        private static string urlmay = "https://kalendar-365.ru/moon/2023/may";
+        private static string urljune = "https://kalendar-365.ru/moon/2023/june";
+        private static string urljuly = "https://kalendar-365.ru/moon/2023/july";
+        private static string urlaugust = "https://kalendar-365.ru/moon/2023/august";
+        private static string urlsept = "https://kalendar-365.ru/moon/2023/september";
+        private static string urloct = "https://kalendar-365.ru/moon/2023/october";
+        private static string urlnov = "https://kalendar-365.ru/moon/2023/november";
+        private static string urldec = "https://kalendar-365.ru/moon/2023/december";
+
+        private static string s;
+     
+
+
+
+
+        private static string rus_str = ":<>аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхЧцЦчЧшШщЩьыъэЭюЮяЯ1234567890";
+        private static string rus_str2 = "аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхЧцЦчЧшШщЩьыъэЭюЮяЯ";
        
-        public static string s = GetHtmlPageText(urlzakat);
-        public static string s1 = GetHtmlPageText(UrlSite);
-
-        private static string rus_str = "↑↓:аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхЧцЦчЧшШщЩьыъэЭюЮяЯ1234567890";
-        private static string rus_str2 = "<аАбБвВгГдДеЕёЁжЖзЗиИйЙкКлЛмМнНоОпПрРсСтТуУфФхЧцЦчЧшШщЩьыъэЭюЮяЯ1234567890";
-
-        public static string LocalLang = string.Join("", s.Where(c => rus_str.Contains(c.ToString())));
-        public static string znaktoday = string.Join("", s1.Where(c => rus_str2.Contains(c.ToString())));
+       
 
 
-        //ПРОМТ ДЕНЬМАСЯЦДЕНЬНЕДЕЛИ Посмотреть
         public Page1()
         {
             InitializeComponent();
             Datanow();
-            stroki();
-
-
-          
-            
-
+            //stroki();
         }
-
+        private static string SetMonth(int month)
+        {
+           
+            switch (month)
+            { 
+                case 1:
+                    s = GetHtmlPageText(urljun);
+                    return s;
+                case 2:
+                    s = GetHtmlPageText(urlfeb);
+                    return s;
+                case 3:
+                    s = GetHtmlPageText(urlmarch);
+                    return s;
+                case 4:
+                    s = GetHtmlPageText(urlapril);
+                    return s;
+                case 5:
+                    s = GetHtmlPageText(urlmay);
+                    return s;
+                case 6:
+                    s = GetHtmlPageText(urljune);
+                    return s;
+                case 7:
+                    s = GetHtmlPageText(urljuly);
+                    return s;
+                case 8:
+                    s = GetHtmlPageText(urlaugust);
+                    return s;
+                case 9:
+                    s = GetHtmlPageText(urlsept);
+                    return s;
+                case 10:
+                    s = GetHtmlPageText(urloct);
+                    return s;
+                case 11:
+                    s = GetHtmlPageText(urlnov);
+                    return s;
+                case 12:
+                    s = GetHtmlPageText(urldec);
+                    return s;
+            }
+            return s;
+        }
         private void UnSetVisible() 
         {
             phaze1.Visibility = Visibility.Hidden;
@@ -69,87 +117,44 @@ namespace mooncalendar
             datepicker.Text = DateInDatePicker.ToString();
         }
 
-        private void OnCalendarOpened(object sender, RoutedEventArgs e)
-        {
-            //datepicker.SelectedDate = DateTime.Now.Date;
-        }
+     
 
         private void OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            DateTime ? date = datepicker.SelectedDate;
             
-            
-            string fwe=date.ToString();
-            DateTime setdata= DateTime.Parse(fwe);
 
+            DateTime? date = datepicker.SelectedDate;
+
+            string selectedDate =date.ToString();
+            DateTime setdata= DateTime.Parse(selectedDate);
+            //string month = SetMonth(setdata.Month);
+            SetMonth(setdata.Month);
+            string LocalLang = string.Join("", s.Where(c => rus_str.Contains(c.ToString())));
+
+
+
+            selectedDate = $"{setdata.Day}{setdata.ToString("MMMM", new CultureInfo("ru-RU")).Replace('й', 'я').Replace('ь','я')}";
+         
+            string allInfoDay = getBetween(LocalLang, selectedDate.ToLower(), "<><><><><><><>");
+
+            string vosxod = getBetween(allInfoDay, "Восход:<>", "<");
+            voshod.Text = vosxod;
+
+            string zahod = getBetween(allInfoDay, "Заход:<>", "<");
+            zakat.Text = zahod;
            
+            string typeOfMoon = getBetween(allInfoDay, "Видимость:", "Луна");           
+            typeOfMoon= string.Join("", typeOfMoon.Where(c => rus_str2.Contains(c.ToString())));
+            fazamoon.Text = typeOfMoon;
 
-            fwe = $"{setdata.Day}<{setdata.ToString("MMMM", new CultureInfo("ru-RU")).Replace('й', 'я')}";
-            string fwr = $"{setdata.Day}{setdata.ToString("MMMM", new CultureInfo("ru-RU")).Replace('й', 'я').ToLower()}{setdata.ToString("ddd").ToLower()}";
-            string ZnakZodiaka = getBetween(znaktoday, fwe, "<<<<<");//основной промт
-            string fweflk = getBetween(LocalLang,fwr, "Взнаке");
-            string rus_str3 = "<:1234567890↓↑";
-            string wefwe = string.Join("", fweflk.Where(c => rus_str3.Contains(c.ToString())));
+            if (typeOfMoon.Length==14) { fazamoon.Text=typeOfMoon.Insert(6," "); }
 
+            string zodiakToday = getBetween(allInfoDay+"<", "Лунав","<");
+            lunnZnak.Text = zodiakToday;
 
-            string Warinng = getBetween("<"+ fweflk, "<", "лунный");
-            if (Warinng.Length == 4)
-            {
-
-                Warinng = Warinng.Substring(2);
-                Warinng = Warinng.Insert(1, " ");
-
-                Warning1.Text = Warinng;
-            }
-
-            if (Warinng.Length == 5)
-            {
-                Warinng = Warinng.Substring(2);
-                Warinng = Warinng.Insert(1, " ");
-
-                Warning1.Text = Warinng;
-            }
-
-            if (Warinng.Length == 6)
-            {
-                Warinng = Warinng.Substring(2);
-                Warinng = Warinng.Insert(2, " ");
-                Warning1.Text = Warinng;
-            }
-
-            if (Warinng.Length == 7)
-            {
-                Warinng = Warinng.Substring(2);
-                Warinng = Warinng.Insert(2, " ");
-                Warinng = Warinng.Insert(5, " ");
-                Warning1.Text = Warinng;
-            }
-
-
-
-            string TimeToStart = getBetween(wefwe, "↓", "↑");
-            string TimeToEnd = getBetween(wefwe + "<", "↑", "<");
-
-            string ZnakZodiaka2 = getBetween(ZnakZodiaka + "<<<<<", "<<", "<<<<<");
-            string ZnakZodiaka3 = getBetween(ZnakZodiaka2 + "<<<<<", "<<", "<<<<<");
-            string ZnakZodiaka4 = getBetween(ZnakZodiaka3 + "<<<<<", "<<", "<<<<<");
-            string ZnakZodiakaMain = getBetween(ZnakZodiaka4 + "<<<<<", "<<", "<<");
-           
-            lunnZnak.Text = ZnakZodiakaMain;
-            if (TimeToEnd.Length == 10)
-            {
-                TimeToStart = getBetween("<" + TimeToEnd, "<", "↓");
-                voshod.Text = "Восход\n" + TimeToStart;
-                TimeToEnd = getBetween(TimeToEnd+ "<", "↓", "<");
-                zakat.Text = "Закат\n" + TimeToEnd;
-            }
-            else
-            {
-                voshod.Text = "Восход\n" + TimeToStart;
-                zakat.Text = "Закат\n" + TimeToEnd;
-            }
-
+            string moonDay = getBetween(allInfoDay, "<><><><>","лунныйдень");
+           if(moonDay.Length!=0)  moonDay = moonDay.Substring(moonDay.Length-2).Replace('>',' ');
+            Warning.Text = "Сегодня "+moonDay+" Лунный день";
 
             GetSelektedDate(date);
         }
@@ -216,83 +221,71 @@ namespace mooncalendar
             lo = 360 * rp + 6.3 * Math.Sin(dp) + 1.3 * Math.Sin(2 * ip - dp) + 0.7 * Math.Sin(2 * ip);
             
         }
-
-
         string MoonPhaseCalc(double ag)
         {
-            string phase;
+            string phase="";
             UnSetVisible();
 
             if (ag < 1.84566)
             {
                 phaze1.Visibility = Visibility;
-                phase = "Новая Луна";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+               
                 return phase;
             }
 
             if (ag < 5.53699)
             {
                 phaze2.Visibility = Visibility; 
-                phase = "Восковой полумесяц";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+                
                 return phase;
             }
 
             if (ag < 9.22831)
             {
                 phaze3.Visibility = Visibility;
-                phase = "Первый квартал";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+                
                 return phase;
             }
 
             if (ag < 12.91963)
             {
                 phaze4.Visibility = Visibility;          
-                phase = "Растущая Луна";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+               
                 return phase;
             }
 
             if (ag < 16.61096)
             {
                 phaze5.Visibility = Visibility;
-                phase = "Полная луна";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+               
                 return phase;
             }
 
             if (ag < 20.30228)
             {
                 phaze6.Visibility = Visibility;
-                phase = "Убывающая луна";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+               
                 return phase;
             }
 
             if (ag < 23.99361)
             {
                 phaze7.Visibility = Visibility;
-                phase = "последний квартал";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+              
                 return phase;
             }
 
             if (ag < 27.68493)
             {
                 phaze8.Visibility = Visibility;
-                phase = "Убывающий полумесяц";
-                fazamoon.Text = $"Фаза луны \n {phase}";
+                
                 return phase;
             }
 
             phaze1.Visibility = Visibility;
-            phase = "Новая Луна";
-            fazamoon.Text = $"Фаза луны \n {phase}";
+            
             return phase;
         }
-
         static double Normalize(double v)
         {
             v = v - Math.Floor(v);
@@ -310,13 +303,13 @@ namespace mooncalendar
             {
                 string PathToZametki = "C:\\zametki2.txt";
                 TextWriter txt = new StreamWriter(PathToZametki);
-                txt.Write(LocalLang);
+                //txt.Write(LocalLang);
                 txt.Close();
             }
 
             //поиск от момента до момента в строке
             public static string getBetween(string strSource, string strStart, string strEnd)
-        {
+            {
             try
             {
                 if (strSource.Contains(strStart) && strSource.Contains(strEnd))

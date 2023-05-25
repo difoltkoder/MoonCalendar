@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static Innovative.SolarCalculator.Universal;
+
 
 namespace mooncalendar
 {
@@ -25,10 +25,21 @@ namespace mooncalendar
         public Page2()
         {
             InitializeComponent();
-            TextFromSave1.Text = File.ReadAllText("C:\\zametki.txt");
-            TextFromSave2.Text = File.ReadAllText("C:\\zametki4.txt");
-            TextFromSave3.Text = File.ReadAllText("C:\\zametki3.txt");
-
+            try
+            {
+                TextFromSave1.Text = File.ReadAllText("C:\\zametki.txt");
+            }
+            catch { }
+            try
+            {
+                TextFromSave2.Text = File.ReadAllText("C:\\zametki4.txt");
+            }
+            catch { }
+            try
+            {
+                TextFromSave3.Text = File.ReadAllText("C:\\zametki3.txt");
+            }
+            catch { }
         }
 
 

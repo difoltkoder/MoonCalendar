@@ -10,7 +10,7 @@
 
     <Grid Background="#FF21179C">
 
-        <DatePicker x:Name="datepicker" CalendarOpened="OnCalendarOpened" SelectedDateChanged="OnSelectedDateChanged" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="datepicker"  SelectedDateChanged="OnSelectedDateChanged" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top"/>
 
         <TextBlock HorizontalAlignment="Right" Margin="0,240,30,0" TextWrapping="Wrap" Text="Лунный знак" VerticalAlignment="Top" Width="Auto" Foreground="White"/>
         <TextBlock HorizontalAlignment="Left" Margin="55,240,0,0" TextWrapping="Wrap" Text="Внимание" VerticalAlignment="Top" Width="Auto" Foreground="White"/>
@@ -20,7 +20,7 @@
         <TextBox x:Name="voshod" Background="#FF675FC3" BorderBrush="#FF675FC3" HorizontalAlignment="Left" Margin="350,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Height="35" Foreground="White"/>
         <TextBox x:Name="zakat" Background="#FF675FC3" BorderBrush="#FF675FC3" HorizontalAlignment="Left" Margin="350,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" Height="35" Foreground="White"/>
         <TextBox x:Name="zametki" HorizontalAlignment="Center" Margin="0,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290" Height="118" BorderBrush="#FF675FC3" TextChanged="TextBox_TextChanged"/>
-        <Grid Margin="20,0,-20,0">
+        <Grid>
             <Ellipse x:Name="phaze1" HorizontalAlignment="Left" Height="75" Margin="359,39,0,0" Stroke="Black" VerticalAlignment="Top" Width="76" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
                 <Ellipse.RenderTransform>
                     <TransformGroup>
@@ -210,7 +210,8 @@
                 </Ellipse.RenderTransform>
             </Ellipse>
             <TextBlock x:Name="lunnZnak" HorizontalAlignment="Right" Margin="0,267,30,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" Height="40" Foreground="White"/>
-            <TextBlock x:Name="Warning1" HorizontalAlignment="Right" Margin="0,267,740,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" Height="40" Foreground="White"/>
+            <TextBlock x:Name="Warning" HorizontalAlignment="Right" Margin="0,267,740,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" Height="40" Foreground="White"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,280,0,0" TextWrapping="Wrap" Text="Заметки" VerticalAlignment="Top" Width="Auto" Foreground="White"/>
         </Grid>
     </Grid>
 </Page>

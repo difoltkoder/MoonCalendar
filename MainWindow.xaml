@@ -16,8 +16,13 @@
             <Button x:Name="Home" Content="Календарь"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Home_Click"></Button>
             <Button x:Name="Calendar" Content="Основное"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Calendar_Click"></Button>
             <Button x:Name="Zametki" Content="Заметки"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Zametki_Click"></Button>
+            <Button x:Name="Randomazer" Content="Гадание"  Height="35" MinWidth="100" Margin="5,5,5,5" Click="Randomazer_Click" />
         </StackPanel>
-        <Frame Background="Blue" x:Name="Myframe" Grid.Row="1"/>
+        <Frame Background="blue" x:Name="Myframe" Grid.Row="1" NavigationUIVisibility="Hidden" >
+            <!--<Frame.Background>
+                --><!--<ImageBrush ImageSource="/FrameImg.jpg"/>--><!--
+            </Frame.Background>-->
+        </Frame>
         <TextBlock x:Name="TextBox12" FontSize="35" Text="Вас приветствует лунный календарь"  VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" Foreground="White">
         </TextBlock>
     </Grid>
